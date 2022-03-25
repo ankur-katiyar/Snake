@@ -1,5 +1,5 @@
 // JavaScript Snake example
-// Author Jan Bodnar
+// Author Ankur Katiyar
 // http://zetcode.com/javascript/snake/
 
 var canvas;
