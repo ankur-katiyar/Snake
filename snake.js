@@ -21,10 +21,10 @@ var inGame = true;
 
 const DOT_SIZE = 10;
 const ALL_DOTS = 900;
-const MAX_RAND = 29;
+const MAX_RAND = 58;
 const DELAY = 140;
-const C_HEIGHT = 300;
-const C_WIDTH = 300;
+const C_HEIGHT = 600;
+const C_WIDTH = 600;
 
 const LEFT_KEY = 37;
 const RIGHT_KEY = 39;
@@ -42,6 +42,7 @@ function init() {
     loadImages();
     createSnake();
     locateApple();
+    update_score();
     setTimeout("gameCycle()", DELAY);
 }
 
@@ -64,15 +65,6 @@ function createSnake() {
     for (var z = 0; z < dots; z++) {
         x[z] = 50 - z * 10;
         y[z] = 50;
-    }
-}
-
-function checkApple() {
-
-    if ((x[0] == apple_x) && (y[0] == apple_y)) {
-
-        dots++;
-        locateApple();
     }
 }
 
@@ -105,7 +97,12 @@ function gameOver() {
     ctx.textAlign = 'center';
     ctx.font = 'normal bold 18px serif';
 
-    ctx.fillText('Game over', C_WIDTH / 2, C_HEIGHT / 2);
+    ctx.fillText('Game over! Your Score - ' + dots, C_WIDTH / 2, C_HEIGHT / 2);
+}
+
+function update_score() {
+    score = document.getElementById('score');
+    score.value = dots - 3;
 }
 
 function checkApple() {
@@ -114,6 +111,7 @@ function checkApple() {
 
         dots++;
         locateApple();
+        update_score();
     }
 }
 
@@ -183,6 +181,8 @@ function locateApple() {
 
     r = Math.floor(Math.random() * MAX_RAND);
     apple_y = r * DOT_SIZE;
+
+    console.log("Making a new apple!");
 }
 
 function gameCycle() {
