@@ -7,6 +7,14 @@
         canvas {
             background: darkblue
         }
+
+        gametitle {
+            color: red;
+            font-weight: bold;
+            padding: 4px;
+            align-content: center;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
     </style>
 
     <script src="./snake.js"></script>
@@ -15,17 +23,21 @@
 <body onload="init();" style="background-color:black;">
     <canvas id="myCanvas" width="300" height="300">
     </canvas>
+
+    <br>
+    <gametitle> Snake v1.0 </gametitle>
+
+    <p style="color:yellow">High Score =
+        <output id="score" name="result"></output>
+    </p>
+    <p style="color:yellow">Speed =
+        <output id="speed" name="speed"></output>
+    </p>
+    <p style="color:yellow">X,Y =
+        <output id="applecord" name="applecord"></output>
+    </p>
+
+    <gametitle> Papa loves Samar....and mamma too! &#128522; </gametitle>
 </body>
-<br>
-<p style="color:yellow">High Score =
-    <output id="score" name="result"></output>
-</p>
-<p style="color:yellow">Speed =
-    <output id="speed" name="speed"></output>
-</p>
-<p style="color:yellow">X,Y =
-    <output id="applecord" name="applecord"></output>
-</p>
-<p style="color:yellow">Version 1.1</p>
 
 </html>
