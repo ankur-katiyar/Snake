@@ -22,7 +22,7 @@ var inGame = true;
 const DOT_SIZE = 10;
 const ALL_DOTS = 900;
 const MAX_RAND = 29;
-var DELAY = 151;
+var DELAY = 141;
 const C_HEIGHT = 300;
 const C_WIDTH = 300;
 
@@ -108,12 +108,24 @@ function update_score() {
 }
 
 function update_speed() {
-    score = document.getElementById('speed');
+    speed = document.getElementById('speed');
     DELAY = DELAY - 1;
     if (DELAY <= 50) {
         DELAY = 50;
     }
-    score.value = DELAY;
+    if (DELAY >= 120) {
+        speed.value = "NORMAL";
+    }
+    if ((DELAY < 120) && (DELAY >= 80)) {
+        speed.value = "FAST";
+    }
+    if ((DELAY < 80) && (DELAY >= 60)) {
+        speed.value = "VERY FAST";
+    }
+    if (DELAY < 60) {
+        speed.value = "LIGHTENING FAST";
+    }
+
 }
 
 function checkApple() {
@@ -194,7 +206,6 @@ function locateApple() {
     r = Math.floor(Math.random() * MAX_RAND);
     apple_y = r * DOT_SIZE;
 
-    console.log("Making a new apple!");
 }
 
 function gameCycle() {
