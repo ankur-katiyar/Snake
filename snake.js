@@ -111,6 +111,9 @@ function update_score() {
 function update_speed() {
     speed = document.getElementById('speed');
     DELAY = DELAY - 1;
+    speed.value = DELAY;
+    return;
+    
     if (DELAY <= 50) {
         DELAY = 50;
     }
@@ -129,7 +132,6 @@ function update_speed() {
     if (DELAY < 60) {
         speed.value = "INSANE";
     }
-    speed.value = DELAY;
 
 }
 
