@@ -22,7 +22,7 @@ var inGame = true;
 const DOT_SIZE = 10;
 const ALL_DOTS = 900;
 const MAX_RAND = 29;
-var DELAY = 142;
+var DELAY = 141;
 const C_HEIGHT = 300;
 const C_WIDTH = 300;
 
@@ -110,7 +110,7 @@ function update_score() {
 
 function update_speed() {
     speed = document.getElementById('speed');
-    DELAY = DELAY - 2;
+    DELAY = DELAY - 1;
     if (DELAY <= 50) {
         DELAY = 50;
     }
