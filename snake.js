@@ -107,6 +107,7 @@ function update_score() {
     score.value = dots - 3;
 }
 
+
 function update_speed() {
     speed = document.getElementById('speed');
     DELAY = DELAY - 2;
@@ -116,14 +117,17 @@ function update_speed() {
     if (DELAY >= 120) {
         speed.value = "NORMAL";
     }
-    if ((DELAY < 120) && (DELAY >= 80)) {
+    if ((DELAY < 120) && (DELAY >= 100)) {
         speed.value = "FAST";
     }
-    if ((DELAY < 80) && (DELAY >= 60)) {
+    if ((DELAY < 100) && (DELAY >= 80)) {
         speed.value = "VERY FAST";
     }
+    if ((DELAY < 80) && (DELAY >= 60)) {
+        speed.value = "SUPER FAST";
+    }
     if (DELAY < 60) {
-        speed.value = "LIGHTENING FAST";
+        speed.value = "INSANE";
     }
 
 }
@@ -200,11 +204,20 @@ function checkCollision() {
 
 function locateApple() {
 
-    var r = Math.floor(Math.random() * MAX_RAND);
-    apple_x = r * DOT_SIZE;
+    apple_x = 0;
+    while ((apple_x == 0) || (apple_x == C_HEIGHT)) {
+        var r = Math.floor(Math.random() * MAX_RAND);
+        apple_x = r * DOT_SIZE;
+    }
 
-    r = Math.floor(Math.random() * MAX_RAND);
-    apple_y = r * DOT_SIZE;
+    apple_y = 0;
+    while ((apple_y == 0) || (apple_y == C_WIDTH)) {
+        r = Math.floor(Math.random() * MAX_RAND);
+        apple_y = r * DOT_SIZE;
+    }
+
+    applecord = document.getElementById('applecord');
+    applecord.value = apple_x + ',' + apple_y;
 
 }
 
