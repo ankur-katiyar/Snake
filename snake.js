@@ -129,6 +129,7 @@ function update_speed() {
     if (DELAY < 60) {
         speed.value = "INSANE";
     }
+    speed.value = DELAY;
 
 }
 
