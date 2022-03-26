@@ -22,7 +22,7 @@ var inGame = true;
 const DOT_SIZE = 10;
 const ALL_DOTS = 900;
 const MAX_RAND = 29;
-const DELAY = 140;
+var DELAY = 151;
 const C_HEIGHT = 300;
 const C_WIDTH = 300;
 
@@ -43,6 +43,7 @@ function init() {
     createSnake();
     locateApple();
     update_score();
+    update_speed();
     setTimeout("gameCycle()", DELAY);
 }
 
@@ -106,6 +107,15 @@ function update_score() {
     score.value = dots - 3;
 }
 
+function update_speed() {
+    score = document.getElementById('speed');
+    DELAY = DELAY - 1;
+    if (DELAY <= 50) {
+        DELAY = 50;
+    }
+    score.value = DELAY;
+}
+
 function checkApple() {
 
     if ((x[0] == apple_x) && (y[0] == apple_y)) {
@@ -113,6 +123,7 @@ function checkApple() {
         dots++;
         locateApple();
         update_score();
+        update_speed();
     }
 }
 
